@@ -16,31 +16,26 @@ MedTrace creates a verifiable cryptographic record of an AI decision so that lat
 
 ## 🎯 Solution
 
-MedTrace demonstrates:
-
 **Clinical AI Decision → CooL Receipt → Cryptographic Verification → Tamper Detection**
-
-The prototype records decision metadata and evidence commitments using the CooL SDK and verifies the resulting receipt.
 
 ## ✨ Current Features
 
-- Simulated clinical AI decision engine
-- CooL cryptographic evidence recording
-- Evidence receipt generation
-- Cryptographic verification
-- Binding verification
-- Signature verification
-- Merkle inclusion verification
-- Simulated attestation/enclave status
-- REST API endpoints for decisions and verification
+* Simulated clinical AI decision engine
+* CooL cryptographic evidence recording
+* Evidence receipt generation
+* Cryptographic verification
+* Binding verification
+* Signature verification
+* Merkle inclusion verification
+* REST API endpoints for decisions and verification
 
 ## 🛠️ Tech Stack
 
-- Node.js
-- TypeScript
-- Express
-- CooL SDK (`cool-nwc`)
-- CORS
+* Node.js
+* TypeScript
+* Express
+* CooL SDK (`cool-nwc`)
+* CORS
 
 ## 🚀 Getting Started
 
@@ -48,3 +43,76 @@ The prototype records decision metadata and evidence commitments using the CooL 
 
 ```bash
 npm install
+```
+
+### 2. Start the development server
+
+```bash
+npx tsx src/server.ts
+```
+
+The server runs at:
+
+`http://localhost:3000`
+
+### 3. Health Check
+
+```text
+GET /api/health
+```
+
+### 4. Create a Clinical AI Decision
+
+```text
+POST /api/decision
+```
+
+Example request:
+
+```json
+{
+  "age": 67,
+  "chestPain": true,
+  "fatigue": true,
+  "hypertension": true
+}
+```
+
+### 5. Verify Evidence
+
+```text
+POST /api/verify
+```
+
+Provide the returned CooL evidence receipt to verify it.
+
+## 🔐 Important Note About Verification
+
+CooL verification proves the integrity and authenticity of the recorded evidence.
+
+It **does not prove that the AI's medical decision is correct, safe, unbiased, or clinically appropriate.**
+
+Attestation and enclave status in this prototype may be simulated locally and should not be interpreted as production hardware-backed attestation.
+
+## 🗺️ Roadmap
+
+* [x] Clinical decision engine
+* [x] CooL receipt creation
+* [x] Cryptographic verification
+* [x] REST API
+* [ ] Persistent receipt storage
+* [ ] Tamper simulation
+* [ ] Frontend dashboard
+* [ ] Evidence timeline
+* [ ] Final demo polish
+
+## 👥 Team
+
+Built as a hackathon prototype.
+
+## 📄 License
+
+To be decided.
+
+
+
